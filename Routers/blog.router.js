@@ -30,7 +30,7 @@ blogRoute.patch("/update/:id",async(req,res)=>{
     const {id}=req.params
     const userId=req.userId
     try {
-        const blog=await BlogModel.populate('user').findByIdAndUpdate({_id:id},payload)
+        const blog=await BlogModel.findByIdAndUpdate({_id:id},payload)
         if(!blog){
             return res.status(200).send({msg:`No blogs find in your id:${userId}`})
         }
@@ -45,7 +45,7 @@ blogRoute.delete("/delete/:id",async(req,res)=>{
     const {id}=req.params
     const userId=req.userId
     try {
-        const blog=await BlogModel.populate('user').findByIdAndDelete({_id:id})
+        const blog=await BlogModel.findByIdAndDelete({_id:id})
             if(!blog){
                 return res.status(200).send({msg:`No blogs find in your id:${userId}`})
             }
