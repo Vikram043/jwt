@@ -9,8 +9,8 @@ const app=express()
 app.use(express.json())
 app.use(cookieParser())
 
-app.use("/user",userRoute)
-app.use("/blog",auth,blogRoute)
+app.use("/",userRoute)
+app.use("/",auth,blogRoute)
 
 app.listen(process.env.port,async()=>{
     try {

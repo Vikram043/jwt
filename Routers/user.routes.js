@@ -6,7 +6,7 @@ const { UserModel } = require("../modules/user.module")
 const { Blacklist } = require("../modules/blacklist.model")
 
 
-userRoute.post("/signin",async(req,res)=>{
+userRoute.post("https://blushing-cummerbund-goat.cyclic.app/signin",async(req,res)=>{
     const {name,email,password,role}=req.body
     try {
         const user_exists=await UserModel.findOne({email})
@@ -25,7 +25,7 @@ userRoute.post("/signin",async(req,res)=>{
     }
 })
 
-userRoute.post("/login",async(req,res)=>{
+userRoute.post("https://blushing-cummerbund-goat.cyclic.app/login",async(req,res)=>{
     const {email,password}=req.body
     try {
         const user_exists=await UserModel.findOne({email})
@@ -47,7 +47,7 @@ userRoute.post("/login",async(req,res)=>{
     }
 })
 
-userRoute.get("/logout",async(req,res)=>{
+userRoute.get("https://blushing-cummerbund-goat.cyclic.app/logout",async(req,res)=>{
     const{AccessToken,RefreshToken}=req.cookies
     try {
        const B_AccessToken=new Blacklist({token:AccessToken})
@@ -60,7 +60,7 @@ userRoute.get("/logout",async(req,res)=>{
     }
 })
 
-userRoute.get("/refresh",async(req,res)=>{
+userRoute.get("https://blushing-cummerbund-goat.cyclic.app/refresh",async(req,res)=>{
     const{RefreshToken}=req.cookies
     console.log(RefreshToken)
     try {
